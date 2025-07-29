@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  moodle:
+    build:
+      context: .
+      args:
+        MOODLE_BRANCH: ${MOODLE_BRANCH}
+    container_name: moodle-app
+    ports:
+      - "8080:80"
+    volumes:
+      - moodledata:/var/www/moodledata
+    environment:
+      - MOODLE_DB_NAME=${MOODLE_DB_NAME}
+      - MOODLE_DB_USER=${MOODLE_DB_USER}
+      - MOODLE_DB_PASSWORD=${MOODLE_DB_PASSWORD}
+      - MOODLE_DB_HOST=${MOODLE_DB_HOST}
+      - MOODLE_DB_PORT=${MOODLE_DB_PORT}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - moodle_net
+
+volumes:
+  moodledata:
+
+networks:
+  moodle_net:
+    driver: bridge
