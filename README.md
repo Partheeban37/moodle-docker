@@ -39,7 +39,7 @@ moodle-docker/
 ### 1.  Clone the Repo
 
 ```bash
-git clone https://github.com/your-repo/moodle-docker.git
+https://github.com/Partheeban37/moodle-docker.git
 cd moodle-docker
 ```
 
