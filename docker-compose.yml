@@ -19,12 +19,6 @@ services:
       - MOODLE_DB_PORT=${MOODLE_DB_PORT}
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    networks:
-      - moodle_net
 
 volumes:
   moodledata:
-
-networks:
-  moodle_net:
-    driver: bridge
